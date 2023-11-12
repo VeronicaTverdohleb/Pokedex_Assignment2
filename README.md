@@ -1,1 +1,1 @@
-https://veronicatverdohleb.github.io/Pokedex
+https://veronicatverdohleb.github.io/Pokedex_Assignment2/
