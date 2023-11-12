@@ -1,38 +1,174 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+/* Pokelist Component */
+body{
+  background-color: #0f0e0e;
+}
 .App {
   text-align: center;
+  font-family: "Press Start 2P", cursive;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pokedex img {
+  width: 50%;
+  height: auto;
+  
+
+ 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+  color: #f42c2c;
 }
+.about-text{
+  margin-top: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  color: #f2f2f8;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax() for card size */
+  gap: 20px; /* Space between cards */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Pokecard Component*/
+.pokemons {
+   /* Replace with actual colors per card */
+  box-shadow: 0px 4px 8px rgba(235, 172, 172, 0.1); /* This gives a slight shadow effect */
+  border-radius: 15px; /* This provides the rounded corners */
+  color: #010317; /* Text color, you might want to set this per card or element */
+  padding: 20px; /* Or any other padding you prefer */
+  margin: 10px; /* Depends on your layout */
+  transition: transform 0.2s ease; /* Smooth transition for hover effect */
+  width: 150px; 
+  height: 200px;
+  /*font-size: 1em;
+  margin-top: 15px;
+  cursor: pointer;
+  border-left: 1px solid #ec242c;
+  border-right: 1px solid #ec242c;*/
+}
+.type-grass { background-color: #a4eb81; }
+.type-fire { background-color: #f09c61; }
+.type-poison {
+  background-color: #f795f7; /* Poison type color */
+}
+.type-water {
+  background-color: #88a8f1; /* Water type color */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.type-electric { background-color: rgb(241, 225, 121); }
+.type-normal { background-color: rgb(214, 211, 211); }
+.type-ice { background-color: #97daf7; }
+.type-fighting { background-color: rgb(250, 118, 118), 97, 97;}
+.type-ground { background-color: #f4c6a5; } 
+.type-flying { background-color: rgb(169, 134, 250); }
+.type-psychic { background-color: #f061eb; }
+.type-bug { background-color: #61f0b0; }
+.type-rock { background-color: #efb174; }
+.type-ghost { background-color: rgb(227, 241, 140), 0.518;}
+.type-dragon { background-color: #bc61f0; }
+.type-dark { background-color: #706e6e; }
+.type-steel { background-color: rgb(188, 217, 241) 240, 192;}
+.type-fairy { background-color: rgb(233, 134, 190) 240, 192; }
+.pokemons:hover{
+  transform: translateY(-5px);
 }
+
+.pokenames {
+  text-decoration: none;
+  color: #17171c;
+  border-top: 1px solid #ec242c;
+  border-bottom: 1px solid #ec242c;
+  font-weight: 1000;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* PokeDetail Component*/
+.details {
+  margin-top: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  /* border-bottom: 1px solid black; */
+  color: #f2f2f8;
+}
+
+.detail-img {
+  border-bottom: 1px solid black;
+}
+/*Style about and back button*/
+.button-about, .button-back {
+  background-color: #d14747; /* Or any color you prefer */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Cursor indicates button */
+  padding: 20px 40px; /* Adjust padding as needed */
+  position: relative; /* To position pseudo-elements */
+  outline: none; /* Remove focus outline */
+  margin-right: 10px; /* Add space between buttons */
+  border-radius: 15px; /* Rounded corners */
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  color: #f9f6f6;
+  margin-top: 50px;
+}
+
+
+
+/* Style the buttons with arrows */
+.button-previous, .button-next {
+  background-color: #d14747; /* Or any color you prefer */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Cursor indicates button */
+  padding: 20px 40px; /* Adjust padding as needed */
+  position: relative; /* To position pseudo-elements */
+  outline: none; /* Remove focus outline */
+  margin-right: 10px; /* Add space between buttons */
+  border-radius: 15px; /* Rounded corners */
+}
+
+/* Add pseudo-element for the previous button arrow */
+.button-previous::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #f9f6f6; /* Arrow color */
+  border-left: 2px solid #f9f6f6; /* Arrow color */
+  transform: rotate(-45deg);/* Rotate arrow to point left */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-44deg); /* Center arrow in button and rotate */
+}
+
+/* Add pseudo-element for the next button arrow */
+.button-next::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #f9f6f6; /* Arrow color */
+  border-right: 2px solid #f9f6f6;
+  transform: rotate(45deg); /* Rotate arrow to point right */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg); /* Center arrow in button and rotate */
+}
+
+.button-previous:disabled,
+.button-previous:disabled::after {
+  background-color: #ccc; /* Light gray background for disabled state */
+  color: #777; /* Darker gray text color for disabled state */
+  cursor: not-allowed; /* Change cursor to indicate the button is disabled */
+}
+
+
+
